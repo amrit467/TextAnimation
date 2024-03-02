@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Animation</title>
+    <style>
+        div {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>I am <span id="newbere"></span> <span>|</span></h1>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const span = document.querySelector('#newbere');
+            const str = "Developer";
+            let index = 0;
+
+            function animateText() {
+                let temp = '';
+                const timeInter = setInterval(() => 
+                {
+                    temp += str[index];
+                    span.textContent = temp;
+                    index++;
+
+                    if (index === str.length) 
+                    {
+                        clearInterval(timeInter);
+                        temp='';
+                        index=0;
+                        setTimeout(()=>
+                        {
+                            animateText();
+                        },400)
+                    }
+                }, 110);
+            }
+
+            animateText();
+
+            console.log("after");
+        });
+    </script>
+</body>
+</html>
