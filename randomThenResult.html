@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random text then final result</title>
+    <style>
+        div
+        {
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width:100%;
+            background-color: #000;
+        }
+        h1
+        {
+            /* filter: drop-shadow(0px 0px 10px #000); */
+            text-shadow: 
+                #fff 0 0 12px,
+                #a91079 0 0 15px,
+                #a91079 0 0 20px,
+                #a91079 0 0 25px;
+                color:#fff;
+                letter-spacing: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>I am <span></span></h1>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=>
+        {
+            const h1=document.querySelector('span');
+            const finalResult='final Result';
+
+            const obj={
+
+                1:"jfndkxnfkd",
+                2:"uerisfgmmck",
+                3:"ppdsjjdvcxik",
+                4:"Scrembli",
+                5:"sumithong",
+                6:"Dendilouns",
+                7:"Mulkdwsbesk",
+                8:"Tina Fey",
+                9:"Thangomojag",
+                10:"Shirt punts",
+                11:"Oppluppla",
+                12:"Chiciluta",
+                13:"hacalito",
+                14:"Cheps und dep",
+                15:"erekiiturukaatfdxbjnjbv",
+                16:"poghutta",
+                17:"adtfuedjsoref",
+                18:"ncmxbhgeds",
+                19:"UJKWIlkjieuds",
+                20:"qwdefrghsdf",
+                21:"mnjhgfds",
+                22:"xcghjkcvgbhj",
+                23:"poiuhgvbnknbv",
+                24:"dxcfgvhbnj",
+                25:"drftgyhj",
+                26:"jiuhytfwgsd"
+            };
+
+            
+
+            const inter=setInterval(()=>
+            {
+                h1.textContent=validator(finalResult,gibbrishGenerate());
+            },100);
+
+            setTimeout(()=>
+            {
+                clearInterval(inter);
+                h1.textContent=finalResult;
+            },2000);
+
+            
+            const validator = (s1,s2) =>
+            {
+                if(s1.length === s2.length)
+                {
+                    return s2;
+                }
+                else if(s1.length < s2.length)
+                {
+                    const s3=s2.slice(0,s1.length);
+                    return s3;
+                }
+                else if(s1.length > s2.length)
+                {
+                    const remainLength= s1.length - s2.length;
+                    const s3= s2.slice(1,remainLength+1);
+                    validator(s1,s3+s2);
+                    return (s3+s2);
+                }
+            }
+
+
+            const gibbrishGenerate = () =>
+            {
+                let randomNos=Math.floor(Math.random()*26)+1;
+                for (let val in obj)
+                {
+                    if (val == randomNos)
+                    {
+                       return (obj[val]);
+                    }
+                }
+            }
+
+            
+            
+        })
+    </script>
+</body>
+</html>
